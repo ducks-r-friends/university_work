@@ -1,3 +1,4 @@
+
 // Grace Appleton
 // 17094599
 
@@ -27,6 +28,12 @@ int main(){
     cout << "Enter date in the format day month year: ";
     cin >> day >> month >> year;
 
+    bool is_negative = false;
+    if (difference < 0) {
+        is_negative = true;
+        difference = -difference; 
+    }
+
     final_month = month; 
     final_year = year;
     final_day = day;
@@ -34,8 +41,7 @@ int main(){
     days_in_month = get_days_in_month();
     days_left_in_month = (days_in_month - day);
 
-    if (difference < 0) {
-        difference = -difference;
+    if (is_negative != true) {
         if ((day + difference) > days_in_month) {
             final_month = month + 1;
             final_year = year;
@@ -43,7 +49,7 @@ int main(){
                 final_month = 1;
                 final_year = year + 1;
             }
-            
+
             month = final_month;
             year = final_year;
             days_in_month = get_days_in_month();
